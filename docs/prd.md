@@ -5,15 +5,15 @@
 **Summary**
 | Field | Detail |
 |-------|--------|
-| Project Name | {Put Project Name Here}|
-| Description | {One sentence summarizing what is the app and why it matters} |
-| Developers | {List of Developers} |
-| Live Website | {website of deployed application} |
-| Repo | {Link to git repository} |
+| Project Name | Omdb movie bio flip cards|
+| Description | Users click on the movie poster image film synopsis information on the reverse side |
+| Developers | {Calvin Harris} |
+| Live Website | {TBA} |
+| Repo | https://github.com/Newbclharri/PROJECT1_WEEK5
 
 ## Problem Being Solved and Target Market
 
-Use this area to explain what problem your app is solving, and who are the people who have this problem.
+The app facilitates access of popular super hero information for fans of the genre
 
 ## User Stories
 
@@ -31,9 +31,9 @@ List of stories users should experience when using your application.
 
 For backend Applications you'll want to detail the different routes and types of your request your server can receive. There are three main things to define.
 
-- The endpoint: the URL to which the request must be made
-- The method: the type of http method the request should be
-- The response: what the response should be, a web page, json data, etc.
+- The endpoint: https://www.omdbapi.com/?apikey=ad043b17&t=
+- The method: GET using $.ajax()
+- The response: json data
 
 You should also include any additional notes on any special headers that may be used and so forth.
 
@@ -41,7 +41,32 @@ You should also include any additional notes on any special headers that may be 
 | -------- | ------ | -------- | ----- |
 | /item | GET | JSON of all items | |
 | /item | POST | Create new item return JSON of new item | body must include data for new item |
-| /item/:id | GET | JSON of item with matching id number | |
+| /item/:id | GET | responseJSON:
+Actors: "Kristen Bell, Idina Menzel, Jonathan Groff"
+Awards: "Won 2 Oscars. 82 wins & 60 nominations total"
+BoxOffice: "$400,953,009"
+Country: "United States"
+DVD: "18 Mar 2014"
+Director: "Chris Buck, Jennifer Lee"
+Genre: "Animation, Adventure, Comedy"
+Language: "English, Norwegian"
+Metascore: "75"
+Plot: "When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condi"
+Poster: "https://m.media-amazon.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_SX300.jpg"
+Production: "N/A"
+Rated: "PG"
+Ratings: (3) [{…}, {…}, {…}]
+Released: "27 Nov 2013"
+Response: "True"
+Runtime: "102 min"
+Title: "Frozen"
+Type: "movie"
+Website: "N/A"
+Writer: "Jennifer Lee, Hans Christian Andersen, Chris Buck"
+Year: "2013"
+imdbID: "tt2294629"
+imdbRating: "7.5"
+imdbVotes: "607,860" | |
 | /item/:id | PUT | update item with matching idea, return its JSON | body must include updated data |
 | /item/:id | DELETE | delete the item with the matching id | |
 | /auth/signup | POST | creates new user account returns user JSON | new user info must be included in body |
