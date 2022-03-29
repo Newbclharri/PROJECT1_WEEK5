@@ -28,19 +28,33 @@ const createFlipCard = (img, arryMovies) => {
     $divFlipFront.empty();
     const $clonedImg = img.clone();
     //creates front side
-    $clonedImg.removeClass('poster-boxed');              
+    $clonedImg.removeClass('poster-boxed');
+    $clonedImg.addClass('img-flip-card')              
     $clonedImg.appendTo($divFlipFront);
     //creates back side
     for(let movie of arryMovies){
         const title = img.attr("id");
         if(movie.Title === title){
+            styleFlipCard();
             $.ajax(`${urlApi}&i=${movie.imdbID}`).then(res => {
             console.log("Back side: ", res);
-            $('h3').text(`${res.Title} ${res.Year}`);
-            $('line-one').text()
+            $divFlipCont.prop("background-color", "#00ffff");
+            $('.back-title').text(`${res.Title} ${res.Year}`);
+            $('.line-one').text(`Rated: ${res.Rated}`);
+            const rottenTom = res.Ratings[1];
+            $('.line-two').text(`${rottenTom.Source}: ${rottenTom.Value}`);
+            $('.line-plot').text(`${res.Plot}`)
             })
         }
     }    
+};
+
+const styleFlipCard = () => {
+    const width = "40vh", height = "50vh"; bgFront = "dodgerblue", bgBack = "aqua";
+    $sectionFlip.css({"width": "var(--flipCardWidth)", "height": "var(--flipCardHeight)"})
+    $divFlipCont.css({"width": "100%", "height": "100%"});
+    $divFlipFront.css({"width": "100%", "height": "100%"});
+    $divFlipBack.css({"width": "100%", "height": "100%"});
 };
 
 

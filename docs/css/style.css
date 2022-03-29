@@ -1,5 +1,7 @@
 :root{
-
+    --backBgColor: aqua;
+    --flipCardWidth: 40vh;
+    --flipCardHeight: 51vh;
 }
 
 *{
@@ -23,45 +25,24 @@ body{
 header{
     text-align: center;
     margin: 10px auto;
+    margin-bottom: 80px;
 }
 
 .flip-card{
-    display: flex;
+    /* display: flex;
     flex-direction: column;    
     justify-content: center; 
-    align-items: center;
+    align-items: center; */
+    margin: 0px auto;
+    /* width: var(--flipCardWidth);
+    height: var(--flipCardHeight); */
     background-color: transparent;
     perspective: 1000px;
 }
 
-.flip-card-cont{
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-/* Horizontal flip when when mouse over flip box container */
-.flip-card:hover .flip-card-cont{
-    transform: rotateY(180deg);
-}
-/* Position the front and back side */
-.flip-card-front, .flip-card-back{
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-card-front{
-    background-color: dodgerblue;
-}
-
-/* Style back side */
-.flip-card-back{
-    background-color: aqua;
-    transform: rotateY(180deg);
-}
 
 .movie-board {
+    padding: 2px 2px 0px 2px;
     display: grid;
     grid-template-columns: 200px 200px 200px 200px 200px;
     gap: 75px;
@@ -76,6 +57,56 @@ header{
     width: 20vh;
     object-fit: cover;
     border: 1px solid red;
+}
+
+.flip-card-cont{
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    /* width: 100%;
+    height: 100%; */
+    /* width: 30%; */
+}
+
+/* Horizontal flip when when mouse over flip box container */
+.flip-card:hover .flip-card-cont{    
+    transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back{
+    position:absolute;
+    /* width: 100%;
+    height: 100%; */
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front{
+    
+    background-color: dodgerblue;
+}
+
+/* Style back side */
+.flip-card-back{
+    transform: rotateY(180deg);
+    overflow-wrap: break-word;
+    background-color: #00ffff;    
+}
+
+
+.line-plot{
+    padding: 5px;
+   text-align: justify;
+}
+.line{
+    margin-bottom: 35px;
+}
+
+.img-flip-card{
+    width: 30vh;
+    height: 50vh;
 }
 
  
