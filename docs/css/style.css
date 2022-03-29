@@ -1,0 +1,54 @@
+:root{
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid red;
+    
+   
+}
+
+body{
+    margin: auto;
+    display: flex;
+    flex-direction: column;    
+    justify-content: center; 
+    align-items: center;
+    width: 80%;
+}
+
+header{
+    text-align: center;
+    margin: 10px auto;
+}
+
+.flip-card{
+    display: flex;
+    flex-direction: column;    
+    justify-content: center; 
+    align-items: center;
+}
+
+
+
+.movie-board {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    gap: 75px;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    text-align: center;
+   
+  }
+
+.poster-boxed{
+    height: 32vh;
+    width: 20vh;
+    object-fit: cover;
+    border: 1px solid red;
+}
+
+ 
