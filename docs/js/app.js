@@ -24,10 +24,23 @@ const setPosters = (arryMovies) => {
     }
 };
 
-const createFlipCard = (img) => {
-    const $clonedImg = $target.clone();
-    $clonedImg.removeClass('poster-boxed')                
-    $clonedImg.appendTo($divFlipFront);     
+const createFlipCard = (img, arryMovies) => {
+    $divFlipFront.empty();
+    const $clonedImg = img.clone();
+    //creates front side
+    $clonedImg.removeClass('poster-boxed');              
+    $clonedImg.appendTo($divFlipFront);
+    //creates back side
+    for(let movie of arryMovies){
+        const title = img.attr("id");
+        if(movie.Title === title){
+            $.ajax(`${urlApi}&i=${movie.imdbID}`).then(res => {
+            console.log("Back side: ", res);
+            $('h3').text(`${res.Title} ${res.Year}`);
+            $('line-one').text()
+            })
+        }
+    }    
 };
 
 
@@ -58,11 +71,9 @@ $movieBtn.on("click", (e) =>{
             
             const img = document.querySelector('img');
             if(e.target.tagName === img.tagName){  
-                $divFlipFront.empty();
                 const $target = $(e.target);
-                createFlipCard();            
-                console.log(e.target);
-                      
+                createFlipCard($target, movies);            
+                console.log(e.target);                      
             }            
         })
     });
