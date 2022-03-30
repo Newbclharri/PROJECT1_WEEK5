@@ -10,6 +10,7 @@ const setPosters = (arryMovies) => {
     // const $divImg = $(`<div class=".image-container">${arryMovies[0].Title}<img id="${arryMovies[0].Title}" class="poster-boxed" src="${arryMovies[0].Poster} alt="${arryMovies[0].Title}"></div>`)
     // $('.movie-board').append($divImg);
     $divFlipFront.empty();
+    unStyleFlipCard();
     $('.movie-board').empty();
     for(let movie of arryMovies){
         const $divImg = $(`
@@ -35,15 +36,20 @@ const createFlipCard = (img, arryMovies) => {
     for(let movie of arryMovies){
         const title = img.attr("id");
         if(movie.Title === title){
-            styleFlipCard();
+            
             $.ajax(`${urlApi}&i=${movie.imdbID}`).then(res => {
             console.log("Back side: ", res);
             $divFlipCont.prop("background-color", "#00ffff");
             $('.back-title').text(`${res.Title} ${res.Year}`);
             $('.line-one').text(`Rated: ${res.Rated}`);
-            const rottenTom = res.Ratings[1];
-            $('.line-two').text(`${rottenTom.Source}: ${rottenTom.Value}`);
+            
+            let ratings = res.Ratings[1];
+            if(!ratings){
+                ratings = res.Ratings[0];
+            }
+            $('.line-two').text(`${ratings.Source}: ${ratings.Value}`);
             $('.line-plot').text(`${res.Plot}`)
+            styleFlipCard();
             })
         }
     }    
@@ -56,6 +62,18 @@ const styleFlipCard = () => {
     $divFlipFront.css({"width": "100%", "height": "100%"});
     $divFlipBack.css({"width": "100%", "height": "100%"});
 };
+
+const unStyleFlipCard = () => {    
+    $sectionFlip.css({"width": "0", "height": "0"})
+    $divFlipCont.css({"width": "0", "height": "0"});
+    $divFlipFront.css({"width": "0", "height": "0"});
+    $divFlipBack.css({"width": "0", "height": "0"});
+    const cardLines = document.querySelectorAll('.line')
+    for(i = 0; i< cardLines.length; i++){
+        cardLines[i].textContent = null;
+    }
+};
+
 
 
 
