@@ -50,7 +50,7 @@ header{
     margin-bottom: 80px;
     box-sizing: border-box;
     width: 100%;
-    background-color: var(--headerBgColor) ;
+    background-color: var(--headerBgColor);
     font-family: 'Limelight';
 }
 
@@ -119,7 +119,7 @@ header{
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front{    
-    background-image: linear-gradient(black, gray) ;   
+    background-image: linear-gradient(black, gray);   
 }
 
 /* Style back side */
@@ -135,6 +135,7 @@ header{
     padding: 15px;
    text-align: center;
 }
+
 .line{
     padding-top: 5px;
     margin-bottom: 35px;
