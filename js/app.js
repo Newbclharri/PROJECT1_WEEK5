@@ -89,8 +89,8 @@ const styleFlipCard = () => {
 const unStyleFlipCard = () => {    
     $sectionFlip.css({"width": "0", "height": "0"})
     $divFlipCont.css({"width": "0", "height": "0"});
-    $divFlipFront.css({"width": "0", "height": "0", "border": "0px solid black"});
-    $divFlipBack.css({"width": "0", "height": "0","border": "0px solid black"});
+    $divFlipFront.css({"width": "0", "height": "0", "border": "none"});
+    $divFlipBack.css({"width": "0", "height": "0","border": "none"});
     const cardLines = document.querySelectorAll('.line')
     for(i = 0; i< cardLines.length; i++){
         cardLines[i].textContent = null;
@@ -131,7 +131,7 @@ $movieBtn.on("click", (e) =>{
     searchTerm = $inputMovie.val();
     $movieBtn.removeClass("font-effect-fire")
     $movieBtn.addClass("font-effect-neon")
-    $('body').css({"border": "2px solid greenyellow"});
+    $('body').css({"border": "2px dashed greenyellow"});
     $('html').css({"background-image": "linear-gradient(purple,black)"})
     formatTitles();
     $.ajax(`${urlApi}&s=${$inputMovie.val()}`).then(res => {
