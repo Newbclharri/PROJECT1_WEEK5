@@ -30,7 +30,6 @@ body{
     height: 100%;
     background-color: var(--bgColorDark);
     color: var(--colorMain);
-    font-family: "Monoton", sans-serif;
 }
 
 main{
@@ -45,6 +44,7 @@ main h1{
 
 #welcome-title{
     margin-bottom: 40px;
+    font-family: 'Limelight';
 }
 
 header{
@@ -54,6 +54,7 @@ header{
     box-sizing: border-box;
     width: 100%;
     background-color: var(--headerBgColor) ;
+    font-family: 'Limelight';
 }
 [type="text"]{
     padding: 5px;
@@ -144,7 +145,7 @@ header{
 .line{
     padding-top: 5px;
     margin-bottom: 35px;
-    font-family: sans-serif;
+    font-family: 'Cinzel';
 
 }
 
