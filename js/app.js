@@ -1,14 +1,33 @@
 console.log("connected!");
-//API KEYS
-//OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=ad043b17
+
+//OMDb API url: http://www.omdbapi.com/?i=tt3896198&apikey=ad043b17
 
 //always look at the structure of the data before manipulating DOM
-//makes the request
+
 //functions******************
+const formatTitles = ()=>{
+    $("#welcome-title").remove();
+    $('#title').addClass('font-effect-neon');
+    $('#title').text(searchTerm);
+};
+
+const setWelcomeMovie = (movie) => {
+        const $divImg = $(`
+        <div class=".image-container">${movie.Title}
+            <img id="${movie.Title}" 
+                class="poster-boxed" 
+                src="${movie.Poster} 
+                alt="${movie.Title}">
+            </>
+        </div>`);
+        $('.movie-board').append($divImg);
+};
+    
+
 const setPosters = (arryMovies) => {
     //accepts array of objects and sets poster object in grid
-    // const $divImg = $(`<div class=".image-container">${arryMovies[0].Title}<img id="${arryMovies[0].Title}" class="poster-boxed" src="${arryMovies[0].Poster} alt="${arryMovies[0].Title}"></div>`)
-    // $('.movie-board').append($divImg);
+   
+    //removes flip card for new movie search
     $divFlipFront.empty();
     unStyleFlipCard();
     $('.movie-board').empty();
@@ -26,12 +45,17 @@ const setPosters = (arryMovies) => {
 };
 
 const createFlipCard = (img, arryMovies) => {
+    //remove previous flip card poster image    
     $divFlipFront.empty();
+
+    //copy user clicked image
     const $clonedImg = img.clone();
+
     //creates front side
     $clonedImg.removeClass('poster-boxed');
     $clonedImg.addClass('img-flip-card')              
     $clonedImg.appendTo($divFlipFront);
+    
     //creates back side
     for(let movie of arryMovies){
         const title = img.attr("id");
@@ -56,10 +80,9 @@ const createFlipCard = (img, arryMovies) => {
 };
 
 const styleFlipCard = () => {
-    const width = "40vh", height = "50vh"; bgFront = "dodgerblue", bgBack = "aqua";
     $sectionFlip.css({"width": "var(--flipCardWidth)", "height": "var(--flipCardHeight)"})
     $divFlipCont.css({"width": "100%", "height": "100%"});
-    $divFlipFront.css({"width": "100%", "height": "100%"});
+    $divFlipFront.css({"width": "100%", "height": "100%","border":"2px solid red"});
     $divFlipBack.css({"width": "100%", "height": "100%"});
 };
 
@@ -75,32 +98,49 @@ const unStyleFlipCard = () => {
 };
 
 
-
-
+//Variables******************
+//Api Key and Url
 const my_api_key = config.SECRET_API_KEY;
 const urlApi = `https://www.omdbapi.com/?apikey=${my_api_key}`;
+//essential HTML elements
 const $inputMovie = $('#movie-query');
 const $movieBtn = $(`#movie-btn`);
 const $movieBoard = $('.movie-board');
+//OMDB id's to load on init
+const ids = { titanic: "tt0120338", lion_king: "tt6105098", star_wars: "tt0076759", lord_of_the_rings: "tt0120737", the_wizard_of_oz: "tt0084458" }
+const titanic = "tt0120338";
 //flip card elements
 const $sectionFlip = $('.flip-card')
 const $divFlipCont = $('.flip-card-cont')
 const $divFlipFront = $('.flip-card-front')
 const $divFlipBack = $('.flip-card-back')
+let searchTerm = null;
+
+
+for(id in ids){
+    $.ajax(`${urlApi}&t=${id}`).then(res => {
+        setWelcomeMovie(res);
+    })
+}
+//click events using jQuery*********************
+
 $movieBtn.on("click", (e) =>{
     e.preventDefault();
     console.log("clicked")
-    // $inputMovie.attr("value", "Star Wars");
     console.log($inputMovie.val())
+    searchTerm = $inputMovie.val();
+    $('body').css({"border": "2px solid red"});
+    $('html').css({"background-image": "linear-gradient(purple,black)"})
+    formatTitles();
     $.ajax(`${urlApi}&s=${$inputMovie.val()}`).then(res => {
         console.log(res);
         const movies = res.Search;
         console.log(movies[0]);
         setPosters(movies);
+        $inputMovie.val(null);
 
         $movieBoard.on("click", (e) => {
-            e.preventDefault();
-            
+            e.preventDefault();           
             const img = document.querySelector('img');
             if(e.target.tagName === img.tagName){  
                 const $target = $(e.target);
@@ -110,8 +150,3 @@ $movieBtn.on("click", (e) =>{
         })
     });
 });
-
-
-
-
-

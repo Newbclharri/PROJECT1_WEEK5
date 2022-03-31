@@ -11,10 +11,12 @@
     <script src="./js/config.js" defer></script>
     <script src="./js/app.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire|neon">
 </head>
 <body>
     <header>
-        <h1>Movie Bios</h1>
+        <h1 id ="title">Search Movies</h1>
         <form action="">
             <input type="text" placeholder="title" id="movie-query">
             <button type="submit" id="movie-btn" class="btn">Search</button>
@@ -22,6 +24,8 @@
     </header>
 
     <main>
+        <h1 id="welcome-title" class="font-effect-neon">Welcome to Movie Bios</h1>
+        <h1 id="search-term"></h1>
         <section id="" class="flip-card">
             <div class="flip-card-cont">
                 <div class="flip-card-front">
@@ -30,14 +34,13 @@
                 <div class="flip-card-back">
                     <!-- reverse side tags here -->                
                     <h3 class="back-title line"></h3>
-                    <h3 class="line-one line"></h4>
-                    <p class="line-two line"></p>
-                    <p class="line-plot line"></p>                
+                    <h3 class="line-one line"></h3>
+                    <h3 class="line-two line"></h3>
+                    <h4 class="line-plot line"></h4>                
                 </div>
             </div>
         </section>
         <section class="movie-board">
-
         </section>
     </main>
 </body>
