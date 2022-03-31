@@ -129,25 +129,27 @@ for(id in ids){
 
 $movieBtn.on("click", (e) =>{
     e.preventDefault();
-    searchTerm = $inputMovie.val();
-    $movieBtn.removeClass("font-effect-fire")
-    $movieBtn.addClass("font-effect-neon")
-    $('body').css({"border": "2px dashed greenyellow"});
-    $('html').css({"background-image": "linear-gradient(purple,black)"})
-    formatTitles();
-    $.ajax(`${urlApi}&s=${$inputMovie.val()}`).then(res => {
-        console.log(res);
-        const movies = res.Search;
-        setPosters(movies);
-        $inputMovie.val(null);
+    if($inputMovie.val()){    
+        searchTerm = $inputMovie.val();
+        $movieBtn.removeClass("font-effect-fire")
+        $movieBtn.addClass("font-effect-neon")
+        $('body').css({"border": "2px dashed greenyellow"});
+        $('html').css({"background-image": "linear-gradient(purple,black)"})
+        formatTitles();
+        $.ajax(`${urlApi}&s=${$inputMovie.val()}`).then(res => {
+            console.log(res);
+            const movies = res.Search;
+            setPosters(movies);
+            $inputMovie.val(null);
 
-        $movieBoard.on("click", (e) => {
-            e.preventDefault();           
-            const img = document.querySelector('img');
-            if(e.target.tagName === img.tagName){  
-                const $target = $(e.target);
-                createFlipCard($target, movies);            
-            }            
-        })
-    });
+            $movieBoard.on("click", (e) => {
+                e.preventDefault();           
+                const img = document.querySelector('img');
+                if(e.target.tagName === img.tagName){  
+                    const $target = $(e.target);
+                    createFlipCard($target, movies);            
+                }            
+            })
+        });
+    }
 });
