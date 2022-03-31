@@ -89,8 +89,8 @@ const styleFlipCard = () => {
 const unStyleFlipCard = () => {    
     $sectionFlip.css({"width": "0", "height": "0"})
     $divFlipCont.css({"width": "0", "height": "0"});
-    $divFlipFront.css({"width": "0", "height": "0"});
-    $divFlipBack.css({"width": "0", "height": "0"});
+    $divFlipFront.css({"width": "0", "height": "0", "border": "0px solid black"});
+    $divFlipBack.css({"width": "0", "height": "0","border": "0px solid black"});
     const cardLines = document.querySelectorAll('.line')
     for(i = 0; i< cardLines.length; i++){
         cardLines[i].textContent = null;
