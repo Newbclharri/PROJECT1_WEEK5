@@ -10,15 +10,12 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    /* border: 1px solid red; */
-    
-   
+    box-sizing: border-box;   
 }
 
-/* html{
-    background-color: gray;
-} */
+html{
+    scroll-behavior: smooth;
+}
 
 body{
     margin: auto;
@@ -43,7 +40,7 @@ main h1{
 }
 
 #welcome-title{
-    margin-bottom: 40px;
+    margin-bottom: 75px;
     font-family: 'Limelight';
 }
 
@@ -56,6 +53,7 @@ header{
     background-color: var(--headerBgColor) ;
     font-family: 'Limelight';
 }
+
 [type="text"]{
     padding: 5px;
     font-size: 20px;
@@ -73,13 +71,12 @@ header{
     padding: 2px 15px 5px 5px;
     display: grid;
     grid-template-columns: 200px 200px 200px 200px 200px;
-    gap: 75px;
+    gap: 85px;
     margin-top: 20px;
     margin-bottom: 30px;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
-   
+    text-align: center;   
   }
 
 
@@ -91,11 +88,14 @@ header{
     border: 1px solid red;
 }
 
+.zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
 
 .flip-card{    
     margin: 0px auto;
-    /* width: var(--flipCardWidth);
-    height: var(--flipCardHeight); */
+    margin-bottom: 85px;
     background-color: transparent;
     perspective: 1000px;
 }
@@ -104,9 +104,6 @@ header{
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    /* width: 100%;
-    height: 100%; */
-    /* width: 30%; */
 }
 
 /* Horizontal flip when when mouse over flip box container */
@@ -115,19 +112,14 @@ header{
 }
 /* Position the front and back side */
 .flip-card-front, .flip-card-back{
-    position:absolute;
-    /* width: 100%;
-    height: 100%; */
+    position:absolute;  
     -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-    
+    backface-visibility: hidden;    
 }
 
 /* Style the front side (fallback if image is missing) */
-.flip-card-front{
-    
-    background-image: linear-gradient(black, gray) ;
-    /* border: 2px solid red; */
+.flip-card-front{    
+    background-image: linear-gradient(black, gray) ;   
 }
 
 /* Style back side */
@@ -136,7 +128,6 @@ header{
     overflow-wrap: break-word;
     background-image: linear-gradient(black,gray);
     color: whitesmoke;
-    /* border: 2px solid plum;   */
 }
 
 

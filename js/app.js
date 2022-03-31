@@ -13,7 +13,7 @@ const formatTitles = ()=>{
 
 const setWelcomeMovie = (movie) => {
         const $divImg = $(`
-        <div class=".image-container">${movie.Title}
+        <div class=".image-container zoom">${movie.Title}
             <img id="${movie.Title}" 
                 class="poster-boxed" 
                 src="${movie.Poster} 
@@ -33,7 +33,7 @@ const setPosters = (arryMovies) => {
     $('.movie-board').empty();
     for(let movie of arryMovies){
         const $divImg = $(`
-        <div class=".image-container">${movie.Title}
+        <div class=".image-container zoom">${movie.Title}
             <img id="${movie.Title}" 
                 class="poster-boxed" 
                 src="${movie.Poster} 
@@ -138,7 +138,6 @@ $movieBtn.on("click", (e) =>{
     $.ajax(`${urlApi}&s=${$inputMovie.val()}`).then(res => {
         console.log(res);
         const movies = res.Search;
-        console.log(movies[0]);
         setPosters(movies);
         $inputMovie.val(null);
 
@@ -148,7 +147,6 @@ $movieBtn.on("click", (e) =>{
             if(e.target.tagName === img.tagName){  
                 const $target = $(e.target);
                 createFlipCard($target, movies);            
-                console.log(e.target);                      
             }            
         })
     });
