@@ -83,7 +83,7 @@ const styleFlipCard = () => {
     $sectionFlip.css({"width": "var(--flipCardWidth)", "height": "var(--flipCardHeight)"})
     $divFlipCont.css({"width": "100%", "height": "100%"});
     $divFlipFront.css({"width": "100%", "height": "100%","border":"2px solid greenyellow"});
-    $divFlipBack.css({"width": "100%", "height": "100%"});
+    $divFlipBack.css({"width": "100%", "height": "100%", "border":"2px solid plum" });
 };
 
 const unStyleFlipCard = () => {    

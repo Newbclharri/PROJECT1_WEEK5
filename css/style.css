@@ -129,7 +129,7 @@ header{
     overflow-wrap: break-word;
     background-image: linear-gradient(black,gray);
     color: whitesmoke;
-    border: 2px solid plum;  
+    /* border: 2px solid plum;   */
 }
 
 
