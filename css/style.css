@@ -56,11 +56,15 @@ header{
     background-color: var(--headerBgColor) ;
 }
 [type="text"]{
+    padding: 5px;
     font-size: 20px;
+    border-radius: 1cm;
 }
 
 .btn{
+    padding: 5px;
     font-size: 20px;
+    border-radius: 5px;
 }
 
 .movie-board {

@@ -129,6 +129,8 @@ $movieBtn.on("click", (e) =>{
     console.log("clicked")
     console.log($inputMovie.val())
     searchTerm = $inputMovie.val();
+    $movieBtn.removeClass("font-effect-fire")
+    $movieBtn.addClass("font-effect-neon")
     $('body').css({"border": "2px solid greenyellow"});
     $('html').css({"background-image": "linear-gradient(purple,black)"})
     formatTitles();
