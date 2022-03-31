@@ -102,13 +102,16 @@ const unStyleFlipCard = () => {
 //Api Key and Url
 const my_api_key = config.SECRET_API_KEY;
 const urlApi = `https://www.omdbapi.com/?apikey=${my_api_key}`;
+
 //essential HTML elements
 const $inputMovie = $('#movie-query');
 const $movieBtn = $(`#movie-btn`);
 const $movieBoard = $('.movie-board');
+
 //OMDB id's to load on init
 const ids = { titanic: "tt0120338", lion_king: "tt6105098", star_wars: "tt0076759", lord_of_the_rings: "tt0120737", the_wizard_of_oz: "tt0084458" }
 const titanic = "tt0120338";
+
 //flip card elements
 const $sectionFlip = $('.flip-card')
 const $divFlipCont = $('.flip-card-cont')
@@ -126,8 +129,6 @@ for(id in ids){
 
 $movieBtn.on("click", (e) =>{
     e.preventDefault();
-    console.log("clicked")
-    console.log($inputMovie.val())
     searchTerm = $inputMovie.val();
     $movieBtn.removeClass("font-effect-fire")
     $movieBtn.addClass("font-effect-neon")
