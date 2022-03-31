@@ -129,7 +129,7 @@ $movieBtn.on("click", (e) =>{
     console.log("clicked")
     console.log($inputMovie.val())
     searchTerm = $inputMovie.val();
-    $('body').css({"border": "2px solid red"});
+    $('body').css({"border": "2px solid greenyellow"});
     $('html').css({"background-image": "linear-gradient(purple,black)"})
     formatTitles();
     $.ajax(`${urlApi}&s=${$inputMovie.val()}`).then(res => {
