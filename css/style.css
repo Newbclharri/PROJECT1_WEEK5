@@ -10,7 +10,8 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;   
+    box-sizing: border-box;  
+    border: 1px solid red; 
 }
 
 html{
@@ -72,18 +73,21 @@ header{
     display: grid;
     grid-template-columns: 200px 200px 200px 200px 200px;
     gap: 85px;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-bottom: 30px;
     justify-content: space-between;
     align-items: center;
     text-align: center;   
   }
 
+  .image-container{
+    margin-top: 0px;
+}
 
 .poster-boxed{
     margin-top: 10px;
     height: 32vh;
-    width: 20vh;
+    width: 22vh;
     object-fit: cover;
     border: 1px solid red;
 }
@@ -132,13 +136,13 @@ header{
 
 
 .line-plot{
-    padding: 15px;
+   
    text-align: center;
 }
 
 .line{
     padding-top: 5px;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     font-family: 'Cinzel';
 
 }
@@ -147,5 +151,6 @@ header{
     width: 30vh;
     height: 50vh;
 }
+
 
  

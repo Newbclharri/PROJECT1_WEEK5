@@ -13,7 +13,7 @@ const formatTitles = ()=>{
 
 const setWelcomeMovie = (movie) => {
         const $divImg = $(`
-        <div class=".image-container zoom">${movie.Title}
+        <div class="image-container zoom">${movie.Title}
             <img id="${movie.Title}" 
                 class="poster-boxed" 
                 src="${movie.Poster} 
@@ -33,7 +33,7 @@ const setPosters = (arryMovies) => {
     $('.movie-board').empty();
     for(let movie of arryMovies){
         const $divImg = $(`
-        <div class=".image-container zoom">${movie.Title}
+        <div class="image-container zoom">${movie.Title}
             <img id="${movie.Title}" 
                 class="poster-boxed" 
                 src="${movie.Poster} 
